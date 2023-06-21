@@ -1,0 +1,57 @@
+[Code]
+main:
+    push rbp
+    mov rbp, rsp
+    mov esi, 0xf
+    mov rdi, 0x400500
+    call 0x400497 <write_n>
+    mov eax, 0x0
+    pop rbp
+    ret
+    
+write_n:
+    push rbp
+    mov rbp, rsp
+    mov QWORD PTR [rbp-0x8],rdi
+    mov DWORD PTR [rbp-0xc],esi
+    xor rdx, rdx
+    mov edx, DWORD PTR [rbp-0xc]
+    mov rsi,QWORD PTR [rbp-0x8]
+    mov rdi, 0x1
+    mov rax, 0x1
+    syscall
+    pop rbp
+    ret
+    
+==================================    
+[Memory] (리틀엔디안이라 오른쪽에서부터 읽는다.)
+0x400500 | 0x3037207964343372 "r34dy 70 "
+0x400508 | 0x003f367562336420 "d3bu6?"
+
+main: 함수:
+
+push rbp: 스택에 현재의 Base Pointer (rbp)를 저장합니다. 이는 새로운 스택 프레임을 생성하는 데 사용됩니다.
+mov rbp, rsp: Stack Pointer (rsp)를 rbp에 복사합니다. 이는 새로운 스택 프레임을 정의하는데 사용됩니다.
+mov esi, 0xf: esi 레지스터에 15 (0xf)를 저장합니다. 이 값은 write_n 함수의 두 번째 인자로 사용됩니다.
+mov rdi, 0x400500: rdi 레지스터에 0x400500을 저장합니다. 이 값은 write_n 함수의 첫 번째 인자로 사용됩니다.
+call 0x400497 <write_n>: write_n 함수를 호출합니다. 이 때 rdi와 esi에 저장된 값들이 인자로 전달됩니다.
+mov eax, 0x0: eax 레지스터에 0을 저장합니다. main 함수의 반환 값으로 사용됩니다.
+pop rbp: 스택에서 값을 가져와 rbp에 저장합니다. 이는 이전 스택 프레임을 복원하는 데 사용됩니다.
+ret: main 함수를 종료하고 반환됩니다.
+
+write_n: 함수:
+
+push rbp: 스택에 현재의 Base Pointer (rbp)를 저장합니다. 이는 새로운 스택 프레임을 생성하는 데 사용됩니다.
+mov rbp, rsp: Stack Pointer (rsp)를 rbp에 복사합니다. 이는 새로운 스택 프레임을 정의하는데 사용됩니다.
+mov QWORD PTR [rbp-0x8],rdi: rdi 레지스터의 값을 PTR의 rbp-0x8 위치에 저장합니다. rdi는 write_n 함수의 첫 번째 인자입니다.
+mov DWORD PTR [rbp-0xc],esi: esi 레지스터의 값을 PTR의 rbp-0xc 위치에 저장합니다. esi는 write_n 함수의 두 번째 인자입니다.
+xor rdx, rdx: rdx 레지스터의 값을 0으로 설정합니다. 이 명령은 레지스터를 초기화하는 데 사용됩니다.
+mov edx, DWORD PTR [rbp-0xc]: PTR의 rbp-0xc 위치에 있는 값을 edx 레지스터에 저장합니다.
+mov rsi,QWORD PTR [rbp-0x8]: PTR의 rbp-0x8 위치에 있는 값을 rsi 레지스터에 저장합니다.
+mov rdi, 0x1: rdi 레지스터에 1을 저장합니다. 이는 write 시스템 콜에서 파일 디스크립터로 사용됩니다 (1은 표준 출력을 의미합니다).
+mov rax, 0x1: rax 레지스터에 1을 저장합니다. 이는 write 시스템 콜 번호를 의미합니다.
+syscall: 시스템 콜을 호출합니다. 이 명령은 write 시스템 콜을 실행하고, 메모리 주소 rsi에서 rdx 바이트를 출력합니다.
+pop rbp: 스택에서 값을 가져와 rbp에 저장합니다. 이는 이전 스택 프레임을 복원하는 데 사용됩니다.
+ret: write_n 함수를 종료하고 반환됩니다.
+
+따라서 정답은 "r34dy 70 d3bu6?"입니다.
