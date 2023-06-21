@@ -48,13 +48,13 @@ IA-32에서 CPU의 레지스터들은 32비트 크기를 가지며, 이들의 �
 호환성을 위해 이 레지스터들은 x86-64에서도 그대로 사용이 가능합니다.
 
 rax 의 하위 32비트(eax) eax의 하위 16비트(ax) ax의 상위 8비트 ah 하위 8비트 al
-rbx 의 하위 32비트(eax) ebx의 하위 16비트(ax) bx의 상위 8비트 bh 하위 8비트 bl
-rcx 의 하위 32비트(eax) ecx의 하위 16비트(ax) cx의 상위 8비트 ch 하위 8비트 cl
-rdx 의 하위 32비트(eax) edx의 하위 16비트(ax) dx의 상위 8비트 dh 하위 8비트 dl
+rbx 의 하위 32비트(ebx) ebx의 하위 16비트(bx) bx의 상위 8비트 bh 하위 8비트 bl
+rcx 의 하위 32비트(ecx) ecx의 하위 16비트(cx) cx의 상위 8비트 ch 하위 8비트 cl
+rdx 의 하위 32비트(edx) edx의 하위 16비트(dx) dx의 상위 8비트 dh 하위 8비트 dl
 
 rsi 의 하위 32비트(esi) esi의 하위 16비트(si)
-rsi 의 하위 32비트(esi) esi의 하위 16비트(si)
-rsi 의 하위 32비트(esi) esi의 하위 16비트(si)
-rsi 의 하위 32비트(esi) esi의 하위 16비트(si)
+rdi 의 하위 32비트(edi) esi의 하위 16비트(di)
+rsp 의 하위 32비트(esp) esi의 하위 16비트(sp)
+rbp 의 하위 32비트(ebp) esi의 하위 16비트(bp)
 
 
