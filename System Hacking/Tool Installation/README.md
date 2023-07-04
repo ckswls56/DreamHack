@@ -30,3 +30,21 @@ x를 이용하면 특정 주소에서 원하는 길이만큼의 데이터를 원
 | `h`    | Unit       | Halfword (2 bytes)             | Halfword (2바이트)    |
 | `w`    | Unit       | Word (4 bytes)                 | Word (4바이트)        |
 | `g`    | Unit       | Giant word (8 bytes)           | Giant word (8바이트)  |
+
+---
+
+pwntools API 사용법 ( http://docs.pwntools.com/en/latest/ )
+
+| 함수명              | 설명                                                          |
+| ------------------- | ------------------------------------------------------------- |
+| process             | 로컬 바이너리를 대상으로 하는 익스플로잇을 위한 함수          |
+| remote              | 원격 서버를 대상으로 하는 익스플로잇을 위한 함수              |
+| send                | 데이터를 프로세스에 전송하기 위한 함수                        |
+| recv                | 프로세스에서 데이터를 받기 위한 함수                          |
+| packing & unpacking | 데이터의 패킹과 언패킹을 위한 함수                            |
+| interactive         | 대화식 모드로 프로세스와 상호작용하기 위한 함수               |
+| ELF                 | ELF 파일 정보를 조작하기 위한 클래스                          |
+| context.log         | 로그 레벨을 설정하고 로그를 출력하기 위한 객체                |
+| context.arch        | 사용할 아키텍처를 설정하고 현재 아키텍처를 확인하기 위한 객체 |
+| shellcraft          | 쉘 코드 생성을 위한 템플릿 및 함수들을 제공하는 모듈          |
+| asm                 | 어셈블리 코드를 생성하기 위한 함수                            |
