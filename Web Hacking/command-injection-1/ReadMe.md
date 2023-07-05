@@ -17,6 +17,8 @@
 app.py의 20행을 보면 cmd = f'ping -c 3 "{host}"' 이며 post로 입력한 값이 대입된다.
 즉 여기서 취약점을 찾아내야 한다. ;를 이용하여 이전 명령의 상관없이 내가 원하는 쉘 코드를 집어 넣는것을 시도하였다.
 문제에 명시 된대로 flag py를 출력하기 위해 다음과 같이 ;cat flag.py 입력하였지만 html 코드에 존재하는 pattern속성에 의하여 계속 막혔다.
+![image](https://github.com/ckswls56/DreamHack/assets/39850159/a2ec4a97-a881-48ed-b8e6-9cf7a0c2b196)
+
 이를 해결하기 위하여 우선 개발자 도구의 element에서 patteren 속성을 제거해주고 다시 시도하였지만 post로 값은 전달 되었지만 에러가 발생되었다.
 app.py의 22행을 보면 쉘이 -c 옵션에 의해 실행됨을 알 수 있다.
 즉 ";cat flag.py" 처럼 따옴표를 감싸주어야 한다.!!!
